@@ -1,0 +1,13 @@
+version: "3.5"
+services:
+  db:
+    container_name: softlab-db
+    image: postgres:13.1-alpine
+    ports:
+      - 5431:5432
+    volumes:
+      - /data/softlab/postgres:/var/lib/postgresql/data
+    environment:
+      POSTGRES_DB: softlab_db
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
