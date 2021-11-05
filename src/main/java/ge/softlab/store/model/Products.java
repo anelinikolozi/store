@@ -12,25 +12,25 @@ public class Products {
     @Id
     @Column(name = "ean_code")
     @GeneratedValue(generator = "eanCodeGenerator",strategy = GenerationType.SEQUENCE)
-    Long eanCode;
+    private Long eanCode;
 
     @Column(name = "product_name")
-    String productName;
+    private String productName;
 
     @Column(name = "description")
-    String descrioption;
+    private String description;
 
     @Column(name = "maker_id")
-    Long makerId;
+    private Long makerId;
 
     @Column(name = "category_id")
-    Long categoryId;
+    private Long categoryId;
 
     @Column(name = "sell_price")
-    Float sellPrice;
+    private Float sellPrice;
 
     @Column(name = "remaining")
-    Integer remaining;
+    private Integer remaining;
 
 
 

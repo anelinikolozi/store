@@ -6,65 +6,65 @@ create database store;
 ----------------------------------------------------------------------------------------------------
 create table categories
 (
-	id bigserial,
-	parent_id bigint,
-	category_name text not null
+    id bigserial,
+    parent_id bigint,
+    category_name text not null
 );
 
 create unique index categories_id_uindex
-	on categories (id);
+    on categories (id);
 
 alter table categories
-	add constraint categories_pk
-		primary key (id);
+    add constraint categories_pk
+        primary key (id);
 
 create table makers
 (
-	id bigserial,
-	"makerName" text not null
+    id bigserial,
+    "makerName" text not null
 );
 
 create unique index makers_id_uindex
-	on makers (id);
+    on makers (id);
 
 create unique index makers_makername_uindex
-	on makers ("makerName");
+    on makers ("makerName");
 
 alter table makers
-	add constraint makers_pk
-		primary key (id);
+    add constraint makers_pk
+        primary key (id);
 
 
 
 create table purchases
 (
-	id bigserial,
-	product_id bigint not null,
-	purchase_price numeric(10,3) not null,
-	purchase_date text not null
+    id bigserial,
+    product_id bigint not null,
+    purchase_price numeric(10,3) not null,
+    purchase_date text not null
 );
 
 create unique index purchases_id_uindex
-	on purchases (id);
+    on purchases (id);
 
 alter table purchases
-	add constraint purchases_pk
-		primary key (id);
+    add constraint purchases_pk
+        primary key (id);
 
 create table sales
 (
-	id bigserial,
-	product_id bigint not null,
-	sell_price numeric(10,3) not null,
-	sell_date text not null
+    id bigserial,
+    product_id bigint not null,
+    sell_price numeric(10,3) not null,
+    sell_date text not null
 );
 
 create unique index sales_id_uindex
-	on sales (id);
+    on sales (id);
 
 alter table sales
-	add constraint sales_pk
-		primary key (id);
+    add constraint sales_pk
+        primary key (id);
 
 create table products
 (
@@ -89,12 +89,12 @@ alter table products
         primary key (ean_code);
 
 alter table purchases
-	add constraint purchases_products_ean_code_fk
-		foreign key (product_id) references products;
+    add constraint purchases_products_ean_code_fk
+        foreign key (product_id) references products;
 
 alter table sales
-	add constraint sales_products_ean_code_fk
-		foreign key (product_id) references products;
+    add constraint sales_products_ean_code_fk
+        foreign key (product_id) references products;
 alter table purchases alter column purchase_date set default now();
 alter table purchases alter column purchase_date drop not null;
 

@@ -13,16 +13,16 @@ public class Sales {
     @Id
     @GeneratedValue(generator = "salesIdSequenceGenerator",strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
-    Long id;
+    private Long id;
 
     @Column(name = "product_id")
-    Long productId;
+    private Long productId;
 
     @Column(name = "sell_price")
-    Float sellPrice;
+    private Float sellPrice;
 
     @Column(name = "sell_date")
-    String sellDate;
+    private String sellDate;
 
 
 

@@ -13,15 +13,15 @@ public class Purchases {
     @GeneratedValue(generator = "purchaseIdGenerator",strategy = GenerationType.SEQUENCE)
     @Id
     @Column(name = "id")
-    Long id;
+    private Long id;
 
     @Column(name = "product_id")
-    Long productId;
+    private Long productId;
 
     @Column(name = "purchase_price")
-    Float purchasePrice;
+    private Float purchasePrice;
 
 
     @Column(name = "purchase_date")
-    String purchaseDate;
+    private String purchaseDate;
 }

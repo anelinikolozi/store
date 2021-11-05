@@ -12,11 +12,11 @@ public class Categories {
     @Id
     @GeneratedValue(generator = "categoriesIdGenerator",strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
-    Long id;
+    private Long id;
 
     @Column(name = "parent_id")
-    Long parentId;
+    private Long parentId;
 
     @Column(name = "category_name")
-    String categoryName;
+    private String categoryName;
 }

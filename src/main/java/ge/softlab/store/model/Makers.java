@@ -13,8 +13,8 @@ public class Makers {
     @Id
     @GeneratedValue(generator = "makerIdSequenceGenerator",strategy = GenerationType.SEQUENCE)
     @Column(name = "id")
-    Long id;
+    private Long id;
     @Column(name = "maker_name")
-    String makerName;
+    private String makerName;
 
 }
