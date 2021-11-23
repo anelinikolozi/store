@@ -1,13 +1,29 @@
 version: "3.5"
 services:
-  db:
+  postgresdb:
     container_name: softlab-db
     image: postgres:13.1-alpine
     ports:
-      - 5431:5432
+      - "5431:5432"
     volumes:
       - /data/softlab/postgres:/var/lib/postgresql/data
     environment:
       POSTGRES_DB: softlab_db
       POSTGRES_USER: user
       POSTGRES_PASSWORD: password
+  mysqldb:
+    image: mysql
+    command: --default-authentication-plugin=mysql_native_password
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: example
+      MYSQL_DATABASE: nikoserver
+      MYSQL_USER: user
+      MYSQL_PASSWORD: password
+    ports:
+      - "9001:3306"
+  mystore:
+    image: nikosdockeri
+    depends_on:
+      - postgresdb
+    network_mode: host

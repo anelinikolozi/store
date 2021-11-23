@@ -3,6 +3,8 @@ package ge.softlab.store.model;
 import lombok.Data;
 
 import javax.persistence.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 
 @Entity
@@ -23,5 +25,5 @@ public class Purchases {
 
 
     @Column(name = "purchase_date")
-    private String purchaseDate;
+    private LocalDateTime purchaseDate;
 }

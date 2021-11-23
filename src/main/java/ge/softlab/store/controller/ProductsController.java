@@ -46,8 +46,8 @@ public class ProductsController {
             return ResponseEntity.ok().body("Thanks for the purchase");
         } catch (NotFoundException e) {
             if (e.getMessage().equals("not found"))
-                return ResponseEntity.badRequest().body("Product not found");
-            else return ResponseEntity.badRequest().body("Product is out of stock");
+             return ResponseEntity.badRequest().body("Product is out of stock");
+            else return ResponseEntity.badRequest().body("Product not found");
         }
     }
 

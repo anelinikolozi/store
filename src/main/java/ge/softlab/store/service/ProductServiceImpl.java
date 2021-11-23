@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -55,9 +57,9 @@ public class ProductServiceImpl implements ProductService{
             Sales sales= new Sales();
             sales.setProductId(products.getEanCode());
             sales.setSellPrice(products.getSellPrice());
-            Date date=new Date();
-            SimpleDateFormat mdyFormat = new SimpleDateFormat("dd-MM-yyyy");
-            sales.setSellDate(mdyFormat.format(date));
+            LocalDateTime date=LocalDateTime.now();
+
+            sales.setSellDate(date);
             salesService.add(sales);
         }
         else throw new NotFoundException("not enough");
@@ -72,9 +74,8 @@ public class ProductServiceImpl implements ProductService{
         Purchases purchases=new Purchases();
         purchases.setProductId(products.getEanCode());
         purchases.setPurchasePrice(products.getSellPrice());
-        Date date=new Date();
-        SimpleDateFormat mdyFormat = new SimpleDateFormat("dd-MM-yyyy");
-        purchases.setPurchaseDate(mdyFormat.format(date));
+        LocalDateTime date=LocalDateTime.now();
+        purchases.setPurchaseDate(date);
 
         purchaseServiceImpl.add(purchases);
 

@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -20,7 +22,7 @@ public class SalesController {
         this.salesService = salesServiceImpl;
     }
     @GetMapping("{date}")
-    public List<Sales> get(@PathVariable Date date){
+    public List<Sales> get(@PathVariable LocalDateTime date){
 
 
         return salesService.getByDate(date);
